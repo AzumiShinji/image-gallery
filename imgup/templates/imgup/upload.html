@@ -1,0 +1,7 @@
+<h1> Upload form </h1>
+
+<form action="{% url 'imgup:upload' %}" method="post" enctype="multipart/form-data" data-ajax="false">{% csrf_token %}
+    {{ form.as_p }}
+    <p><input type="submit" value="Upload" /></p>
+    <button type="button" name="button" onClick="location.href='{% url 'imgup:gallery' %}'" >Go to gallery</button>
+</form>

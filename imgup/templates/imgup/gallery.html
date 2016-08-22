@@ -1,0 +1,34 @@
+<head>
+    <style media="screen">
+    div.img {
+        margin: 48px 5px 0px 5px;
+        border: 1px solid #ccc;
+        float: left;
+        height: 180px;
+    }
+    div.img:hover {
+        border: 1px solid #777;
+    }
+    div.img img {
+        height: 100%;
+        width: auto;
+    }
+    div.desc {
+        padding: 5px;
+        text-align: center;
+    }
+    </style>
+</head>
+<h1>Gallery <button type="button" name="button" onClick="location.href='{% url 'imgup:upload' %}'" >Go to upload</button></h1>
+
+
+
+{% for img in images %}
+
+<div class="img">
+  <a target="_blank" href="/imgup/{{ img.image.url }}">
+    <img src="/imgup/{{ img.image.url }}" alt="img" width="300" height="200">
+  </a>
+  <div class="desc">{{ img.comment }}</div>
+</div>
+{% endfor %}
